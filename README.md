@@ -48,7 +48,7 @@ Este proyecto es una **aplicación web** desarrollada con **Laravel** que permit
 1. **Clona el Repositorio**:
 
     ```bash
-    git clone https://github.com/tu-usuario/generador-contrasenas.git
+    git clone https://github.com/AlejandraTech/generador-contrasenas.git
     cd generador-contrasenas
     ```
 
