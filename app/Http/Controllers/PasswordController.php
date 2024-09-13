@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Password;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PasswordController extends Controller
 {
@@ -37,18 +39,19 @@ class PasswordController extends Controller
 
     public function showHistory()
     {
-        $passwords = Password::latest()->take(10)->get();
+        $passwords = Auth::user()->passwords()->latest()->take(10)->get();
         return view('history', ['passwords' => $passwords]);
     }
 
     private function savePassword($password)
     {
-        Password::create(['value' => $password]);
+        Auth::user()->passwords()->create(['value' => $password]);
     }
 
     public function delete($id)
     {
-        Password::destroy($id);
+        $password = Auth::user()->passwords()->findOrFail($id);
+        $password->delete();
         return redirect()->route('password.history');
     }
 
