@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Password;
 use Illuminate\Http\Request;
 
 class PasswordController extends Controller
@@ -31,31 +32,23 @@ class PasswordController extends Controller
 
         $this->savePassword($password);
 
-        $request->session()->put('password_config', $validated);
-
         return view('result', ['password' => $password]);
     }
 
     public function showHistory()
     {
-        $passwords = session('generated_passwords', []);
+        $passwords = Password::latest()->take(10)->get();
         return view('history', ['passwords' => $passwords]);
     }
 
     private function savePassword($password)
     {
-        $passwords = session('generated_passwords', []);
-        array_unshift($passwords, $password);
-        session(['generated_passwords' => array_slice($passwords, 0, 10)]);
+        Password::create(['value' => $password]);
     }
 
-    public function delete($index)
+    public function delete($id)
     {
-        $passwords = session('generated_passwords', []);
-        if (isset($passwords[$index])) {
-            unset($passwords[$index]);
-            session(['generated_passwords' => array_values($passwords)]);
-        }
+        Password::destroy($id);
         return redirect()->route('password.history');
     }
 

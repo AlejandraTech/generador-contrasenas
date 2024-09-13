@@ -17,12 +17,12 @@
                 </h2>
             </div>
             <div class="mt-8 space-y-6">
-                @if(count($passwords) > 0)
+                @if($passwords->count() > 0)
                 <ul class="bg-white shadow overflow-hidden sm:rounded-md">
-                    @foreach($passwords as $index => $password)
+                    @foreach($passwords as $password)
                     <li class="px-4 py-4 sm:px-6 flex justify-between items-center">
-                        <div class="text-sm font-medium text-indigo-600 truncate">{{ $password }}</div>
-                        <form action="{{ route('password.delete', $index) }}" method="POST">
+                        <div class="text-sm font-medium text-indigo-600 truncate">{{ $password->value }}</div>
+                        <form action="{{ route('password.delete', $password->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2">Eliminar</button>
