@@ -29,7 +29,7 @@
                 <ul class="bg-white shadow overflow-hidden sm:rounded-md">
                     @foreach($passwords as $password)
                     <li class="px-4 py-4 sm:px-6 flex justify-between items-center">
-                        <div class="text-sm font-medium text-indigo-600 truncate">{{ $password->value }}</div>
+                        <div class="text-sm font-medium text-indigo-600 truncate">{{ $password->getDecryptedValue() }}</div>
                         <form action="{{ route('password.delete', $password->id) }}" method="POST">
                             @csrf
                             @method('DELETE')

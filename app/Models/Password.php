@@ -15,4 +15,9 @@ class Password extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getDecryptedValue()
+    {
+        return decrypt($this->value);
+    }
 }
