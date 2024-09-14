@@ -1,4 +1,4 @@
-# 🔐 Generador de Contraseñas Seguras 💻
+# 🔐 Generador de Contraseñas Seguras
 
 Bienvenido al **Generador de Contraseñas Seguras**, una aplicación web desarrollada con **Laravel** que permite a los usuarios generar contraseñas seguras y personalizadas. Además, proporciona un historial de las contraseñas generadas, asociado a la cuenta de cada usuario.
 
@@ -124,6 +124,12 @@ Sigue los pasos a continuación para configurar el proyecto en tu máquina local
 3. **Visualización y Almacenamiento**: La contraseña generada se muestra y se guarda automáticamente en tu historial.
 4. **Historial de Contraseñas**: Visualiza y gestiona las contraseñas generadas anteriormente.
 5. **Cierre de Sesión**: Cierra sesión para proteger tu información.
+
+---
+
+## Autor 👩‍💻
+
+Este proyecto fue creado por [**@AlejandraTech**](https://github.com/AlejandraTech).
 
 ---
 
