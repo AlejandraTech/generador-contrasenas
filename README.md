@@ -127,7 +127,7 @@ Sigue los pasos a continuación para configurar el proyecto en tu máquina local
 
 ---
 
-## Autor 👩‍💻
+## 👩‍💻 Autor
 
 Este proyecto fue creado por [**@AlejandraTech**](https://github.com/AlejandraTech).
 
