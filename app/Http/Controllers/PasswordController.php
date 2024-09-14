@@ -45,7 +45,9 @@ class PasswordController extends Controller
 
     private function savePassword($password)
     {
-        Auth::user()->passwords()->create(['value' => $password]);
+        Auth::user()->passwords()->create([
+            'value' => encrypt($password)
+        ]);
     }
 
     public function delete($id)
